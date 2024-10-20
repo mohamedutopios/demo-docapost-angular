@@ -1,0 +1,36 @@
+<div class="container mb-4">
+  <h1>Presentation</h1>
+  <br />
+
+  <section class="m-4">
+    <h2>Interpolation</h2>
+
+    <p>Nom : {{ name }}</p>
+    <p>1 + 1 = {{ 1 + 1 }}</p>
+    <p>Nom Majuscule : {{ name.toUpperCase() }}</p>
+    <p>{{ isLogged ? "Voues êtes connectes" : "Veuillez vous connectées" }}</p>
+  </section>
+
+  <section>
+    <h2>Data Binding/ Attribute Binding</h2>
+    <p><img [src]="galaxy" [alt]="description" /></p>
+  </section>
+
+
+  <p [style]="myStyle"> Un exemple de style </p>
+
+  <p [class]="maClasseA">C'est une class perso</p>
+
+  <p [class]=" isLogged ? maClasseA : maClasseC">C'est une class dynamique</p>
+
+  
+  <p [ngClass]="['text-bg-warning p-3', maClasseB]">C'est une class dynamique avec ngClass</p>
+
+  <p [ngClass]="{'text-bg-warning p-3' : true, maClasseB: isLogged}">C'est une class dynamique avec ngClass</p>
+
+  <p>
+    <button (click)="toggleLogged()" class="btn btn-success">{{ isLogged ? "Connexion" : "Deconnexion" }}</button>
+  </p>
+
+
+</div>

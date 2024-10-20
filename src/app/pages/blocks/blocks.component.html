@@ -1,0 +1,52 @@
+<div class="container mb-4">
+  <h1>Les blocks</h1>
+  <br />
+
+  <section class="m-4">
+    <h2>Les blocks conditionnels</h2>
+    <br/>
+    @if(!isLogged){
+    <div>
+      <h3>Vous n'êtes pas connecté.</h3>
+      <p>
+        <button class="btn btn-primary" (click)="toggleLogged()">Se connecter</button>
+      </p>
+    </div>
+    }@else if(isLogged){
+    <div>
+      <h2>Bienvenue Jean-louis</h2>
+      <br/>
+      <h3>Vous êtes connecté.</h3>
+      <p> 
+        <button class="btn btn-danger" (click)="toggleLogged()">Se deconnecter</button>
+      </p>
+    </div>
+    }@else {
+    <p>Vous êtes ni connecté, ni deconnecté</p>
+    }
+  </section>
+
+
+<section class="m-4">
+    <h2>Les blocks Switch</h2>
+
+    @switch (today) {
+        @case ('Monday') {
+            <p> Zut c'est lundi</p>
+        }
+        @case ('Tuesday') {
+            <p> Le mardi c'est permis</p>
+        }
+        @case ('Friday') {
+            <p>C'est bientôt le week-end</p>
+        }
+        @default {
+            <p>Un autre jour de la semaine</p>
+        }
+    }
+
+</section>
+
+
+
+</div>
