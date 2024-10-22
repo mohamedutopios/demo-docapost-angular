@@ -24,7 +24,9 @@ export class BlocksComponent {
 
   fruits = ['pomme','poire','abricot','pêche'];
 
-  user = {}
+  user = {
+    name: 'Jean Michel'
+  }
 
 
 }

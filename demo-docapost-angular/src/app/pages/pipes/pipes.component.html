@@ -1,0 +1,38 @@
+<div class="container mb-4">
+  <h1>Les pipes</h1>
+  <br />
+
+  <section class="m-4">
+    <h2>Texte</h2>
+
+    <ul>
+      <li>{{ message }}</li>
+      <li>{{ message | uppercase }}</li>
+      <li>{{ message | lowercase }}</li>
+      <li>{{ message | titlecase }}</li>
+    </ul>
+  </section>
+
+  <section class="m-4">
+    <h2>Nombres</h2>
+
+    <ul>
+      <li>{{ pi }}</li>
+      <li>{{ pi | number }}</li>
+      <li>{{ pi | number: '1.0-2'}}</li>
+      <li>{{ 4 | number: '3.3-3'}}</li>
+    </ul>
+  </section>
+
+  <section class="m-4">
+    <h2>Les dates</h2>
+
+    <ul>
+      <li>{{ today }}</li>
+      <li>{{ today | date: 'short' }}</li>
+      <li>{{ today | date: 'long'}}</li>
+      <li>{{ today | date: 'medium' | uppercase }}</li>
+      <li>{{ today | date: 'dd/MM/YYYY'}}</li>
+    </ul>
+  </section>
+</div>

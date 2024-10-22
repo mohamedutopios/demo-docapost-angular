@@ -47,6 +47,25 @@
 
 </section> -->
 
+<section>
+<h2>Les boucles</h2>
+
+<ul>
+  @for (item of fruits; track $index;) {
+  <li >
+    A l'index : {{ $index }}, j'ai : {{ item }}.
+    C'est le premier de la liste ? : {{ $first }}
+    C'est le dernier de la liste ? : {{ $last }}
+    Il y a {{ $count }} items dans le tableau
+  </li>
+} @empty {
+  <p>La liste est vide</p>
+}
+</ul>
+
+
+</section>
+
   <section>
     <h1>Les directives structurelles</h1>
 
@@ -105,9 +124,8 @@
 <section>
 <h2> Les variables de templates</h2>
 
-<ng-container *ngIf>
-
-
+<ng-container *ngIf="user as userData">
+  <p>Username : {{userData.name}}</p>
 </ng-container>
 
 </section>
