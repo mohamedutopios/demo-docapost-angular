@@ -1,4 +1,4 @@
-<div class="container mb-4">
+<div class="container m-4">
   <!--   <h1>Les blocks</h1>
   <br />
 
@@ -89,4 +89,27 @@
       <p *ngSwitchDefault>Un jour etrange</p>
     </div>
   </section>
+
+  <section>
+    <h2>Les boucles</h2>
+   <ul>
+    <li *ngFor="let f of fruits; index as i; count as c; first as isFirst; last as isLast" >
+      A l'index : {{ i }}, j'ai : {{ f }}.
+      C'est le premier de la liste ? : {{ isFirst }}
+      C'est le dernier de la liste ? : {{ isLast }}
+      Il y a {{ c }} items dans le tableau
+    </li>
+   </ul>
+   <p *ngIf="fruits.length === 0">La liste est vide</p>
+  </section>
+<section>
+<h2> Les variables de templates</h2>
+
+<ng-container *ngIf>
+
+
+</ng-container>
+
+</section>
+
 </div>

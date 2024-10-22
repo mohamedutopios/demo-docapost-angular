@@ -22,5 +22,9 @@ export class BlocksComponent {
 
   today: days = 'Sunday'
 
+  fruits = ['pomme','poire','abricot','pêche'];
+
+  user = {}
+
 
 }
