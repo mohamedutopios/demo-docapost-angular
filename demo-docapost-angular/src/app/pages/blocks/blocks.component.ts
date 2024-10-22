@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core';
 
 type days = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday'
@@ -5,13 +6,13 @@ type days = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturd
 @Component({
   selector: 'app-blocks',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './blocks.component.html',
   styleUrl: './blocks.component.css'
 })
 export class BlocksComponent {
 
-  isLogged = true
+  isLogged = false
 
 
   toggleLogged(){

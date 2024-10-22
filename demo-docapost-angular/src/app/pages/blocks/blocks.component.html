@@ -1,5 +1,5 @@
 <div class="container mb-4">
-  <h1>Les blocks</h1>
+  <!--   <h1>Les blocks</h1>
   <br />
 
   <section class="m-4">
@@ -45,8 +45,48 @@
         }
     }
 
-</section>
+</section> -->
 
+  <section>
+    <h1>Les directives structurelles</h1>
 
+    <h2>Les conditions</h2>
 
+    <div *ngIf="!isLogged; else loggedBlock">
+      <h3>Vous n'êtes pas connectés</h3>
+      <p>
+        <button class="btn btn-primary" (click)="toggleLogged()">
+          se connecter
+        </button>
+      </p>
+    </div>
+
+    <ng-template #loggedBlock>
+      <div *ngIf="isLogged; else nothingToDoBlock">
+        <h3>Bienvenue Jean-Michel</h3>
+        <p>
+          <button class="btn btn-danger" (click)="toggleLogged()">
+            Logout
+          </button>
+        </p>
+      </div>
+    </ng-template>
+
+    <ng-template #nothingToDoBlock>
+      <div>
+        <h3>Rien à faire</h3>
+      </div>
+    </ng-template>
+  </section>
+
+  <section>
+    <h2>Switch</h2>
+    <div [ngSwitch]="today">
+      <p *ngSwitchCase="'Monday'">Oh non, on est lundi</p>
+      <p *ngSwitchCase="'Tuesday'">Le mardi c'est permis</p>
+      <p *ngSwitchCase="'Friday'">Bientôt vendredi</p>
+      <p *ngSwitchCase="'Sunday'">C'est déjà dimanche</p>
+      <p *ngSwitchDefault>Un jour etrange</p>
+    </div>
+  </section>
 </div>
