@@ -2,7 +2,7 @@
   <h1>Les pipes</h1>
   <br />
 
-  <section class="m-4">
+  <section>
     <h2>Texte</h2>
 
     <ul>
@@ -13,7 +13,7 @@
     </ul>
   </section>
 
-  <section class="m-4">
+  <section >
     <h2>Nombres</h2>
 
     <ul>
@@ -24,7 +24,7 @@
     </ul>
   </section>
 
-  <section class="m-4">
+  <section >
     <h2>Les dates</h2>
 
     <ul>
@@ -34,5 +34,29 @@
       <li>{{ today | date: 'medium' | uppercase }}</li>
       <li>{{ today | date: 'dd/MM/YYYY'}}</li>
     </ul>
+
+    <p>Plus d'options de format sur les dates  : 
+
+      <a href="https://v17.angular.io/api/common/DatePipe#custom-format-options">Sur la docs</a>
+    </p>
+
+    <h2>Les Currency</h2>
+
+    <ul>
+      <li>{{ montant | currency }}</li>
+      <li>{{ montant | currency:'EUR'}}</li>
+      <li>{{ montant | currency:'EUR':'code' }}</li>
+      <li>{{ montant | currency:'GBP':'symbol':'1.2-2'}}</li>
+    </ul>
+    
+    <h2>Pipe personnalisé : </h2>
+
+    <p>{{ message | rainbows }}</p>
+
   </section>
+
+
+
+ 
+
 </div>
