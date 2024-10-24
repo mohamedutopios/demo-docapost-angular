@@ -1,7 +1,9 @@
 <div class="container mb-4">
     <h1>Composant Parent</h1>
 
-    
+    <div><input [(ngModel)]="pokemon"></div>
    
+    <app-pokemon-card pokemon="Bulbizare"></app-pokemon-card>
+    <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
   </div>
   
