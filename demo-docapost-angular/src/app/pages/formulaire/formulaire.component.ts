@@ -28,15 +28,15 @@ export class FormulaireComponent {
 
   constructor(private fb: FormBuilder) {
     this.reactiveForm = this.fb.group({
-      email: ['', [Validators.required], Validators.email],
-      password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$')]],
       address: ['', Validators.required],
-      city: ['', Validators.required, Validators.minLength(5)],
+      city: ['', [Validators.required, Validators.minLength(5)]],
     });
   }
-  onReactiveSubmit() {
 
-    console.log('onReactiveSubmit', this.reactiveForm.value);
+  onReactiveSubmit() {
+    console.log('onReactiveSubmit', this.reactiveForm.value)
   }
 
 }
