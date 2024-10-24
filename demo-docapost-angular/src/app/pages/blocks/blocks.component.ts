@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core';
+import { TitleService } from '../../utils/services/title.service';
 
 type days = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday'
 
@@ -11,6 +12,17 @@ type days = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturd
   styleUrl: './blocks.component.css'
 })
 export class BlocksComponent {
+
+
+  constructor(private titleService: TitleService) { 
+
+  }
+
+  ngOnInit() {
+    this.titleService.setTitle('Blocks')
+  }
+
+
 
   isLogged = false
 
