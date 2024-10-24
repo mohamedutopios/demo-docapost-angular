@@ -25,7 +25,6 @@ export class FormulaireComponent {
 
   reactiveForm: FormGroup;
 
-
   constructor(private fb: FormBuilder) {
     this.reactiveForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
