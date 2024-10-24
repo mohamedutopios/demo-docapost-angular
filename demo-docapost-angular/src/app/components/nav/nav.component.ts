@@ -17,7 +17,6 @@ titrePage: string = '';
 constructor(private titleService: TitleService) { 
 
 
-
 }
 
 ngOnInit() {

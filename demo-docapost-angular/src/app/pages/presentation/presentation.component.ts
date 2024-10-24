@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
+import { TitleService } from '../../utils/services/title.service';
 
 @Component({
   selector: 'app-presentation',
@@ -31,7 +32,12 @@ export class PresentationComponent {
     this.isLogged = !this.isLogged;
   }
 
-  
+  constructor(private titleService: TitleService) { 
+
+  }
+  ngOnInit() {
+    this.titleService.setTitle('Presentation')
+  }
 
   
 }

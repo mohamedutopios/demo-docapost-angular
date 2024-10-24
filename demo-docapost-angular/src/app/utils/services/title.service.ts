@@ -12,7 +12,6 @@ currentTitle = this.titleSource.asObservable();
 
 setTitle(title: string) {
   this.titleSource.next(title);
-
 }
   
 }

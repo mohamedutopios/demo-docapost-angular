@@ -13,16 +13,12 @@ type days = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturd
 })
 export class BlocksComponent {
 
-
   constructor(private titleService: TitleService) { 
 
   }
-
   ngOnInit() {
     this.titleService.setTitle('Blocks')
   }
-
-
 
   isLogged = false
 

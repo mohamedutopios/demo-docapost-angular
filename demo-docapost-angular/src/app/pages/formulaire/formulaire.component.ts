@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TitleService } from '../../utils/services/title.service';
 
 @Component({
   selector: 'app-formulaire',
@@ -25,13 +26,17 @@ export class FormulaireComponent {
 
   reactiveForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private titleService: TitleService) {
     this.reactiveForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$')]],
       address: ['', Validators.required],
       city: ['', [Validators.required, Validators.minLength(5)]],
     });
+  }
+
+  ngOnInit() {
+    this.titleService.setTitle('Formulaire');
   }
 
   onReactiveSubmit() {

@@ -5,6 +5,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BlocksComponent } from './pages/blocks/blocks.component';
 import { PipesComponent } from './pages/pipes/pipes.component';
 import { FormulaireComponent } from './pages/formulaire/formulaire.component';
+import { ParentComponent } from './pages/parent/parent.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -12,6 +13,7 @@ export const routes: Routes = [
     {path: 'block', component: BlocksComponent },
     {path: 'pipe', component: PipesComponent},
     {path: 'formulaire', component: FormulaireComponent},
+    {path: 'parent', component: ParentComponent},
     {path: '**', component: NotFoundComponent }
 
 

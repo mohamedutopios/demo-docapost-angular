@@ -20,5 +20,5 @@ class Person {
   }
 }
 
-const john = new Person("Alain", 67);
+const john = new Person("Jean-Michel", 67);
 console.log(john.bonjour());
