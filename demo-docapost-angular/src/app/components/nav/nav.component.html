@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Softeam Formation Angular</a>
+      <div class="text-danger">{{ titrePage | uppercase }}</div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,7 +22,8 @@
             <a class="nav-link" routerLink="/formulaire">Formulaire</a>
           </li>
         </ul>
+        
       </div>
-      <p>{{ titrePage }}</p>
+      
     </div>
   </nav>
