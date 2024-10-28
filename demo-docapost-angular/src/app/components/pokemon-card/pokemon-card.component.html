@@ -1,1 +1,9 @@
-<p>{{ pokemon }}</p>
+<!-- <p>{{ pokemon }}</p> -->
+
+<div class="card" style="width: 18rem;">
+  <img [src]="pokemon.image" [alt]="pokemon.name" class="card-img-top" />
+  <div class="card-body text-center">
+    <h5 class="card-title">{{ pokemon.name }}</h5>
+    <p class="card-text">Type : {{ pokemon.type }}</p>
+  </div>
+</div> 
