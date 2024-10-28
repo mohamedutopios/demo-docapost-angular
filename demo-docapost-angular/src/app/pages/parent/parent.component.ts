@@ -3,6 +3,7 @@ import { TitleService } from '../../utils/services/title.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PokemonCardComponent } from '../../components/pokemon-card/pokemon-card.component';
+import { User } from '../../utils/interfaces/user';
 
 @Component({
   selector: 'app-parent',
@@ -17,13 +18,17 @@ export class ParentComponent {
 
   pokemon = 'Pikachu';
 
+  pokemons = ['Pikachu', 'Bulbizarre', 'Salamèche', 'Carapuce', "Rondoudou", "Mewtwo"];
+
+  users: User[] = []
+
+
   constructor(private titleService: TitleService) { 
 
   }
+
   ngOnInit() {
     this.titleService.setTitle('Parent')
   }
-
-
 
 }
