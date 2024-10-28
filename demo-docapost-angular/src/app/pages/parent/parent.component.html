@@ -6,18 +6,40 @@
   <app-pokemon-card pokemon="Bulbizare"></app-pokemon-card>
   <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card> -->
 
-  @for (poke of pokemons; track poke){
+ <!--  @for (poke of pokemons; track poke){
   <app-pokemon-card [pokemon]="poke"></app-pokemon-card>
-  }
+  } -->
 
-  <h2>Users</h2>
 
-  <app-user-card *ngFor="let user of users" [user]="user"></app-user-card>
 
-  @for (u of users; track u){
+  <h2>Comme un slot</h2>
+
+
+  <p>
+    <app-button (clickEvent)="sayHello('coucou')"> cliquez ici ! </app-button>
+    <app-button (clickEvent)="sayHello($event)"> cliquez ici ! </app-button>
+      
+  </p>
+
+
+  <h2>Output - Input</h2>
+
+
+  <app-counter [count]="counter" (countChange)="modifyChange($event)"></app-counter>
+
+  <!-- <h2>Users</h2>
+
+  <app-user-card *ngFor="let user of users" [user]="user"></app-user-card> -->
+
+<!--   @for (u of users; track u){
   <app-user-card [user]="u"></app-user-card>
-  }
+  } -->
 
-  <app-user-card [user]="{firstName: 'Thomas', lastName: 'Dupont', email: 'thomas@gmail.com'}"></app-user-card>
+  <!-- <app-user-card [user]="{firstName: 'Thomas', lastName: 'Dupont', email: 'thomas@gmail.com'}"></app-user-card> -->
+
+
+
+
+
 
 </div>
