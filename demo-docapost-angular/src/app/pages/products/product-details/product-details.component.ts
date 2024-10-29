@@ -11,8 +11,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent {
-
   product: Product;
+  keyword: string;
+
   products: Product[] = [
     { id: 1, name: 'Product 1', description: 'Description 1', price: 100 },
     { id: 2, name: 'Product 2', description: 'Description 2', price: 200 },
@@ -26,5 +27,11 @@ export class ProductDetailsComponent {
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
     this.product = this.products.find((p) => p.id == id);
+
+    this.route.queryParams.subscribe((params) => {
+      this.keyword = params['keyword'];
+      console.log("keyword : " + this.keyword);
+    });
+  
   }
 }

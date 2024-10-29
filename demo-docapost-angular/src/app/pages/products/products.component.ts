@@ -25,7 +25,7 @@ export class ProductsComponent {
   goToProductDetails(id: number){
     console.log(this.router.url);
     console.log(this.router.url.includes('products'));
-    this.router.navigate(['products', id]);
+    this.router.navigate(['products', id], {queryParams: {keyword: 'Angular'}});
   }
 
 }
