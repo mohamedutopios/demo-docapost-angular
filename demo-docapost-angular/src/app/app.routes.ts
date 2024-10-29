@@ -7,6 +7,8 @@ import { PipesComponent } from './pages/pipes/pipes.component';
 import { FormulaireComponent } from './pages/formulaire/formulaire.component';
 import { ParentComponent } from './pages/parent/parent.component';
 import { LifecycleComponent } from './pages/lifecycle/lifecycle.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductDetailsComponent } from './pages/products/product-details/product-details.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -16,6 +18,8 @@ export const routes: Routes = [
     {path: 'formulaire', component: FormulaireComponent},
     {path: 'lifecycle', component: LifecycleComponent},
     {path: 'parent', component: ParentComponent},
+    {path: 'products', component: ProductsComponent},
+    {path: 'products/:id', component: ProductDetailsComponent},
     {path: '**', component: NotFoundComponent }
 
 
