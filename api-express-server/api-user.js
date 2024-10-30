@@ -8,6 +8,8 @@ let users = [
   { id: 2, name: "Jane", email: "jane@utopios.net" },
 ];
 
+app.use(express.json());
+
 app.use(
   cors({
     origin: "http://localhost:4200",
@@ -28,7 +30,7 @@ app.post("/api/users", (req, res) => {
 });
 
 app.put("/api/users/:id", (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const user = req.body;
   const index = users.findIndex((user) => user.id === id);
   users[index] = user;
@@ -36,9 +38,8 @@ app.put("/api/users/:id", (req, res) => {
 });
 
 app.get("/api/users/:id", (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const user = users.find((user) => user.id === id);
-
   if (user) {
     res.status(200).json(user);
   } else {
@@ -47,11 +48,10 @@ app.get("/api/users/:id", (req, res) => {
 });
 
 app.delete("/api/users/:id", (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   users = users.filter((user) => user.id !== id);
   res.status(204).json(users);
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
