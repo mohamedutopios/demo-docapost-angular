@@ -16,9 +16,9 @@ import { Useer } from '../../utils/interfaces/useer';
 })
 export class UserListComponent {
   users: Useer[] = [];
-  selectedUser: User | null = null;
+  selectedUser: Useer | null = null;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.loadUsers();
@@ -31,10 +31,9 @@ export class UserListComponent {
     });
   }
 
-  viewUser(user: User) {
+  viewUser(user: Useer) {
     this.selectedUser = user;
   }
-
 
 
   deleteUser(id: number) {
