@@ -18,10 +18,13 @@ export class UserListComponent {
   users: Useer[] = [];
   selectedUser: Useer | null = null;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private route: Router) {}
 
   ngOnInit(): void {
     this.loadUsers();
+    this.route.events.subscribe(() => {
+      this.loadUsers();
+    });
   }
 
   loadUsers() {
