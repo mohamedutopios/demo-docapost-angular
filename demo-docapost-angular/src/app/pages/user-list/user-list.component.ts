@@ -1,10 +1,11 @@
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+import { UserService } from '../../utils/services/user.service';
+import { User } from '../../utils/interfaces/user';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { Useer } from '../../utils/interfaces/useer';
-import { UserService } from '../../utils/services/user.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-list',
@@ -15,16 +16,28 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class UserListComponent {
   users: Useer[] = [];
-  selectedUser: Useer;
+  selectedUser: User | null = null;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadUsers();
   }
 
   loadUsers() {
-    this.userService.getUsers().subscribe((users) => (this.users = users));
-    console.log(this.users);
+    this.userService.getUsers().subscribe((data) => {
+      this.users = data;
+      console.log(data);
+    });
+  }
+
+  viewUser(user: User) {
+    this.selectedUser = user;
+  }
+
+
+
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe(() => this.loadUsers());
   }
 }
