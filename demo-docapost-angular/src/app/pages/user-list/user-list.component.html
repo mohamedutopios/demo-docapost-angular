@@ -1,27 +1,49 @@
 <div class="container">
+  <button type="button" class="btn btn-primary">Create User</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button type="button" class="btn btn-primary m-2">Edit</button>
+          <button
+            type="button"
+            (click)="deleteUser(user.id)"
+            class="btn btn-danger mm-2"
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            (click)="viewUser(user)"
+            class="btn btn-success m-2"
+          >
+            View
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    <button type="button" class="btn btn-primary">Create User</button>
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users">
-            <th scope="row">{{user.id}}</th>
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>
-                <button type="button" class="btn btn-primary m-2">Edit</button>
-                <button type="button" (click)="deleteUser(user.id)" class="btn btn-danger mm-2">Delete</button>
-                <button type="button" (click)="viewUser(user)" class="btn btn-success m-2">View</button>
-            </td>
-          </tr>
-        
-        </tbody>
-      </table>
+  
+
+
+  <div *ngIf="selectedUser" class="card mt-4">
+    <div class="card-header">User Details</div>
+    <div class="card-body">
+      <h5 class="card-title">{{ selectedUser.name }}</h5>
+      <p class="card-text">{{ selectedUser.email }}</p>
+      <p class="card-text">{{ selectedUser.id }}</p>
+    </div>
+  </div>
 </div>
