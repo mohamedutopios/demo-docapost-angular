@@ -35,7 +35,6 @@ export class UserListComponent {
     this.selectedUser = user;
   }
 
-
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe(() => this.loadUsers());
   }

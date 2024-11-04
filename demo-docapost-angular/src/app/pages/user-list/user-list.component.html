@@ -1,5 +1,5 @@
 <div class="container">
-  <button type="button" class="btn btn-primary">Create User</button>
+  <button type="button" [routerLink]="['create']" class="btn btn-primary">Create User</button>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -15,7 +15,7 @@
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>
-          <button type="button" class="btn btn-primary m-2">Edit</button>
+          <button type="button" [routerLink]="['/users/edit', user.id]" class="btn btn-primary m-2">Edit</button>
           <button
             type="button"
             (click)="deleteUser(user.id)"
@@ -35,8 +35,7 @@
     </tbody>
   </table>
 
-  
-
+  <router-outlet></router-outlet>
 
   <div *ngIf="selectedUser" class="card mt-4">
     <div class="card-header">User Details</div>
