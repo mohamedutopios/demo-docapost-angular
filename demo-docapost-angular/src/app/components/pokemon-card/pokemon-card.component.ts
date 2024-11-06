@@ -10,8 +10,6 @@ import { Pokemon } from '../../utils/interfaces/pokemon';
 })
 export class PokemonCardComponent {
 
-//@Input() pokemon: string = 'poke';
-
 @Input() pokemon: Pokemon;
 
 }
