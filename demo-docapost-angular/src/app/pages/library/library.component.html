@@ -1,0 +1,78 @@
+<h1 class="text-center my-4">Librairie</h1>
+
+<section class="container d-flex flex-wrap justify-content-around mb-5">
+  <div *ngFor="let book of books;" class="card shadow-lg mb-4" style="width: 18rem;">
+    <div class="card-header bg-info text-white">
+      <span [ngClass]="{ 'text-decoration-underline': book.isRead }">{{ book.title }}</span>
+      {{ book.isRead | thumb }}
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ book.author }}</p>
+      <button class="btn btn-success w-100" (click)="toggleIsRead(book)">
+        {{ book.isRead ? "Lu" : "Pas Lu" }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="text-center mb-4">Ajouter un livre</h2>
+
+  <form (ngSubmit)="submitNewBook()" class="p-4 border rounded shadow-sm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Titre</label>
+      <div class="input-group">
+        <input
+          id="title"
+          name="title"
+          type="text"
+          class="form-control"
+          [(ngModel)]="newBook.title"
+          [ngClass]="{
+            'is-valid': !titleHasError,
+            'is-invalid': titleHasError
+          }"
+          (ngModelChange)="validateTitle()"
+          required
+        />
+        <span *ngIf="!titleHasError" class="input-group-text bg-white border-0">
+          <i class="bi bi-check-circle-fill text-success"></i>
+        </span>
+        <div *ngIf="titleHasError" class="invalid-feedback">Le titre doit contenir au moins 5 caractères</div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="author" class="form-label">Auteur.trice</label>
+      <div class="input-group">
+        <input
+          id="author"
+          name="author"
+          type="text"
+          class="form-control"
+          [(ngModel)]="newBook.author"
+          [ngClass]="{
+            'is-valid': !authorHasError,
+            'is-invalid': authorHasError
+          }"
+          (ngModelChange)="validateAuthor()"
+          required
+        />
+        <span *ngIf="!authorHasError" class="input-group-text bg-white border-0">
+          <i class="bi bi-check-circle-fill text-success"></i>
+        </span>
+        <div *ngIf="authorHasError" class="invalid-feedback">L'auteur.trice doit contenir au moins 5 caractères</div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button
+      type="submit"
+      class="btn btn-primary px-5"
+      [disabled]="titleHasError || authorHasError"
+    >
+      Enregistrer
+    </button>
+    </div>
+  </form>
+</section>
