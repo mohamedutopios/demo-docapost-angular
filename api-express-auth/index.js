@@ -21,7 +21,7 @@ app.post('/api/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     users.push({ email, password: hashedPassword });
     console.log(users);
-    res.status(201).json({ message: 'Utilisateur créé' }); // Réponse JSON
+    res.status(201).json({ message: 'Utilisateur créé' }); 
 });
 
 

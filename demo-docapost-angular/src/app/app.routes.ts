@@ -11,6 +11,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProductDetailsComponent } from './pages/products/product-details/product-details.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -22,6 +23,7 @@ export const routes: Routes = [
     {path: 'parent', component: ParentComponent},
     {path: 'products', component: ProductsComponent},
     {path: 'products/:id', component: ProductDetailsComponent},
+    {path: 'login', component: LoginComponent},
     {path: 'users', component: UserListComponent, children : [
         {path: 'create', component: UserCreateComponent},
         {path: 'edit/:id', component: UserCreateComponent}

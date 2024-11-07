@@ -1,1 +1,12 @@
-<p>login works!</p>
+<div class="container">
+    <h2 *ngIf="!isRegisterMode">Connexion</h2>
+    <h2 *ngIf="isRegisterMode">Inscription</h2>
+    <form (ngSubmit)="isRegisterMode ? register() : login()">
+      <input [(ngModel)]="email" name="email" type="email" placeholder="Email" required />
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Mot de passe" required />
+      <button type="submit" class="btn btn-success ">{{ isRegisterMode ? 'S’inscrire' : 'Se connecter' }}</button>
+    </form>
+    <button (click)="toggleMode()" class="btn btn-primary m-3">
+      {{ isRegisterMode ? 'Déjà inscrit ? Se connecter' : 'Pas de compte ? S’inscrire' }}
+    </button>
+  </div>
