@@ -36,9 +36,11 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/login">Guard</a>
           </li>
+          
         </ul>
-        
+        <button *ngIf="isLogged()" class="btn btn-danger m-3" (click)="logout()">
+          Déconnexion
+        </button>
       </div>
-      
     </div>
   </nav>

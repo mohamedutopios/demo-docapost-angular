@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TitleService } from '../../utils/services/title.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../utils/services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -14,9 +15,17 @@ export class NavComponent {
 
 titrePage: string = '';
 
-constructor(private titleService: TitleService) { 
+constructor(private titleService: TitleService, private authService: AuthService, private router: Router) { }
 
 
+
+logout() {
+  this.authService.logout();
+  this.router.navigate(['/login']);
+}
+
+isLogged(): boolean {
+  return this.authService.isLogged();
 }
 
 ngOnInit() {

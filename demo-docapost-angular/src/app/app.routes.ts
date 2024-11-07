@@ -12,12 +12,13 @@ import { ProductDetailsComponent } from './pages/products/product-details/produc
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from './utils/guard/auth.guard';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'presentation', component: PresentationComponent},
     {path: 'block', component: BlocksComponent },
-    {path: 'pipe', component: PipesComponent},
+    {path: 'pipe', component: PipesComponent, canActivate: [authGuard]},
     {path: 'formulaire', component: FormulaireComponent},
     {path: 'lifecycle', component: LifecycleComponent},
     {path: 'parent', component: ParentComponent},

@@ -19,22 +19,36 @@ export class LoginComponent {
   constructor(private router: Router, private auth: AuthService) {}
 
   register() {
-    this.auth.register({ email: this.email, password: this.password }).subscribe(
+    this.auth
+      .register({ email: this.email, password: this.password })
+      .subscribe(
+        (res) => {
+          console.log(res);
+          alert(res.message);
+          this.isRegisterMode = false;
+        },
+        (err) => {
+          console.log(err);
+          alert('Inscription failed');
+        }
+      );
+  }
+
+  login() {
+    this.auth.login({ email: this.email, password: this.password }).subscribe(
       (res) => {
         console.log(res);
-        alert(res)
-        this.isRegisterMode = false;
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['/presentation']);
       },
       (err) => {
         console.log(err);
-        alert('Inscription failed')
+        alert('Login failed');
       }
     );
   }
 
-  login() {}
-
-  toggleMode(){
+  toggleMode() {
     this.isRegisterMode = !this.isRegisterMode;
   }
 }
