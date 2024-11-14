@@ -9,10 +9,14 @@ describe('UserListTestComponent', () => {
   let userServiceStub: Partial<UserService>;
 
   beforeEach(async () => {
+    userServiceStub = {
+      getUsers: () => ['Alice', 'Bob', 'Charlie'],
+    };
+
     await TestBed.configureTestingModule({
-      imports: [UserListTestComponent]
-    })
-    .compileComponents();
+      imports: [UserListTestComponent],
+      providers: [{ provide: UserService, useValue: userServiceStub }],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UserListTestComponent);
     component = fixture.componentInstance;
@@ -22,4 +26,19 @@ describe('UserListTestComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get users', () => {
+    const compiled = fixture.nativeElement;
+    const listeItems = compiled.querySelectorAll('ul li');
+    expect(listeItems.length).toBe(3);
+
+    expect(listeItems[0].textContent).toContain('Alice');
+
+    expect(listeItems[1].textContent).toContain('Bob');
+
+    expect(listeItems[2].textContent).toContain('Charlie');
+  });
 });
+
+
+// ng test --include 'src/app/pages/user-list-test/user-list-test.component.spec.ts'
